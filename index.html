@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Product Management System</h1>
+        </header>
+
+        <div class="controls-section">
+            <div class="search-container">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    placeholder="Search products by name..."
+                    class="search-input"
+                >
+            </div>
+
+            <div class="view-toggle">
+                <button id="listViewBtn" class="view-btn active" title="List View">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M2 4h16v2H2V4zm0 5h16v2H2V9zm0 5h16v2H2v-2z"/>
+                    </svg>
+                </button>
+                <button id="cardViewBtn" class="view-btn" title="Card View">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M2 2h6v6H2V2zm0 8h6v6H2v-6zm8-8h6v6h-6V2zm0 8h6v6h-6v-6z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <aside class="form-section">
+                <h2 id="formTitle">Add New Product</h2>
+                <form id="productForm">
+                    <div class="form-group">
+                        <label for="productName">Name <span class="required">*</span></label>
+                        <input type="text" id="productName" name="name" required>
+                        <span class="error-message" id="nameError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="productPrice">Price <span class="required">*</span></label>
+                        <input type="number" id="productPrice" name="price" step="0.01" min="0" required>
+                        <span class="error-message" id="priceError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="productCategory">Category <span class="required">*</span></label>
+                        <select id="productCategory" name="category" required>
+                            <option value="">Select a category</option>
+                            <option value="Electronics">Electronics</option>
+                            <option value="Clothing">Clothing</option>
+                            <option value="Food">Food</option>
+                            <option value="Books">Books</option>
+                            <option value="Home">Home</option>
+                            <option value="Sports">Sports</option>
+                        </select>
+                        <span class="error-message" id="categoryError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="productStock">Stock</label>
+                        <input type="number" id="productStock" name="stock" min="0" value="0">
+                        <span class="error-message" id="stockError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="productDescription">Description</label>
+                        <textarea id="productDescription" name="description" rows="4"></textarea>
+                        <span class="error-message" id="descriptionError"></span>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary" id="submitBtn">Add Product</button>
+                        <button type="button" class="btn btn-secondary" id="cancelBtn" style="display: none;">Cancel</button>
+                    </div>
+                </form>
+            </aside>
+
+            <main class="products-section">
+                <div id="productsContainer" class="products-container list-view">
+                    <!-- Products will be rendered here -->
+                </div>
+
+                <div id="paginationContainer" class="pagination-container">
+                    <!-- Pagination will be rendered here -->
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
